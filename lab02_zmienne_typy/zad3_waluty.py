@@ -11,3 +11,8 @@ EUR_RATE = 4.25   # 1 EUR = 4.25 PLN
 USD_RATE = 3.80   # 1 USD = 3.80 PLN
 
 # TODO: Twój kod poniżej
+PLN = float(input())
+rownowartosc_EUR = PLN/EUR_RATE
+rownowartosc_USD = PLN/USD_RATE
+print(f"{PLN} PLN = {rownowartosc_EUR:.2f} EUR")
+print(f"{PLN} PLN = {rownowartosc_USD:.2f} USD")
