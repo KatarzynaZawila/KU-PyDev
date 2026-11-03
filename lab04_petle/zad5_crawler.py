@@ -21,3 +21,37 @@ with open("dane/strona.html", encoding="utf-8") as f:
     html = f.read()
 
 # TODO: Twój kod poniżej
+liczba_linkow = 0
+domeny = []
+start = 0
+
+while True:
+    pozycja = html.find('href="', start)
+
+    if pozycja == -1:
+        break
+
+    liczba_linkow += 1
+
+    poczatek = pozycja + 6
+    koniec = html.find('"', poczatek)
+
+    adres = html[poczatek:koniec]
+
+    poczatek_domeny = adres.find("://") + 3
+    koniec_domeny = adres.find("/", poczatek_domeny)
+
+    if koniec_domeny == -1:
+        domena = adres[poczatek_domeny:]
+    else:
+        domena = adres[poczatek_domeny:koniec_domeny]
+
+    if domena not in domeny:
+        domeny.append(domena)
+
+    start = koniec + 1
+
+print(f"Liczba linków: {liczba_linkow}")
+
+for domena in domeny:
+    print(domena)

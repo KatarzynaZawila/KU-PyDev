@@ -11,3 +11,19 @@
 # Uwaga: liczba 0 ma jedną cyfrę.
 
 # TODO: Twój kod poniżej
+n = int(input())
+
+suma = 0
+liczba_cyfr = 0
+
+if n == 0:
+    liczba_cyfr = 1
+
+while n > 0:
+    cyfra = n % 10
+    suma += cyfra
+    liczba_cyfr += 1
+    n = n // 10
+
+print(f"Suma cyfr: {suma}")
+print(f"Liczba cyfr: {liczba_cyfr}")
